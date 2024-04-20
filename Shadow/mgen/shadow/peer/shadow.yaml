@@ -1,0 +1,26 @@
+general:
+  stop_time: 1h
+
+network:
+  graph:
+    # use a built-in network graph containing
+    # a single vertex with a bandwidth of 1 Gbit
+    type: 1_gbit_switch
+
+hosts:
+  peer1:
+    network_node_id: 0
+    ip_addr: 100.0.0.1
+    processes: &proc
+    - path: mgen-peer
+      args: "../hostsfile *.yaml"
+      start_time: 5s
+      expected_final_state: running
+  peer2:
+    network_node_id: 0
+    ip_addr: 100.0.0.2
+    processes: *proc
+  peer3:
+    network_node_id: 0
+    ip_addr: 100.0.0.3
+    processes: *proc

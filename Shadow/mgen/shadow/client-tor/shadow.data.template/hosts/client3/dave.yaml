@@ -1,0 +1,16 @@
+user: "Dave"
+socks: "127.0.0.1:9000"
+message_server: "100.0.0.3:6397"
+web_server: "100.0.0.2:6398"
+bootstrap: 5.0
+retry: 5.0
+distributions:
+  s: 0.5
+  r: 0.1
+  m: { distribution: "Poisson", lambda: 1.0 }
+  i: { distribution: "Normal", mean: 15.0, std_dev: 30.0 }
+  w: { distribution: "Normal", mean: 30.0, std_dev: 30.0 }
+  a_s: { distribution: "Normal", mean: 10.0, std_dev: 5.0 }
+  a_r: { distribution: "Normal", mean: 10.0, std_dev: 5.0 }
+conversations:
+  - group: "group2"

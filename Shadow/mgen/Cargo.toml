@@ -1,0 +1,40 @@
+workspace = { members = ["mgentools"] }
+[package]
+name = "mgen"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+chrono = "0.4.24"
+console-subscriber = { version = "0.2.0", optional = true }
+futures = "0.3.28"
+glob = "0.3.1"
+hyper = { version = "0.14", default-features = false, features = ["client"] }
+hyper-rustls = "0.24.1"
+hyper-socks2 = { version = "0.8.0", default-features = false, features = ["rustls"] }
+rand = "0.8.5"
+rand_distr = { version = "0.4.3", features = ["serde1"] }
+rand_xoshiro = "0.6.0"
+rustc-hash = "1.1.0"
+rustls-pemfile = "1.0.3"
+serde = { version = "1.0.158", features = ["derive"] }
+serde_yaml = "0.9.21"
+tokio = { version = "1", features = ["full"] }
+tokio-metrics = { version = "0.3.1", optional = true }
+tokio-rustls = { version = "0.24.1", features = ["dangerous_configuration"] }
+tokio-socks = "0.5.1"
+tracing = { version = "0.1.40", optional = true }
+url = "2.4.0"
+
+[features]
+default = []
+tracing = ["dep:console-subscriber", "dep:tracing", "dep:tokio-metrics", "tokio/tracing"]
+
+[profile.release]
+lto = true
+codegen-units = 1
+
+[profile.bench]
+# useful for profiling, but increases binary size,
+# so potentially bad for real experiments
+debug = true

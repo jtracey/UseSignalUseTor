@@ -1,0 +1,4 @@
+HiddenServiceDir bob.tor
+HiddenServicePort 6397 127.0.0.1:6397
+HiddenServiceDir carol.tor
+HiddenServicePort 6398 127.0.0.1:6398

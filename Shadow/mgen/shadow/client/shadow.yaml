@@ -1,0 +1,38 @@
+general:
+  stop_time: 1h
+
+network:
+  graph:
+    # use a built-in network graph containing
+    # a single vertex with a bandwidth of 1 Gbit
+    type: 1_gbit_switch
+
+hosts:
+  server:
+    network_node_id: 0
+    ip_addr: 100.0.0.1
+    processes:
+    - path: mgen-server
+      args: [server.crt, server.key, 100.0.0.1:6397]
+      start_time: 3s
+      expected_final_state: running
+
+  web:
+    network_node_id: 0
+    ip_addr: 100.0.0.2
+    processes:
+    - path: mgen-web
+      args: [server.crt, server.key, 100.0.0.2:6398]
+      start_time: 3s
+      expected_final_state: running
+
+  client1: &client_host
+    network_node_id: 0
+    processes:
+    - path: mgen-client
+      args: "*.yaml"
+      start_time: 5s
+      expected_final_state: running
+      environment: {RUST_LOG: "trace"}
+  client2: *client_host
+  client3: *client_host

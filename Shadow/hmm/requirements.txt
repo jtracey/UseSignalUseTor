@@ -1,0 +1,4 @@
+hmmlearn
+matplotlib
+numpy
+datetime

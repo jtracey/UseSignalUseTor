@@ -1,0 +1,3 @@
+HiddenServiceDir alice.tor
+HiddenServicePort 6397 127.0.0.1:6397
+

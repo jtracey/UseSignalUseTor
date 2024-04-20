@@ -1,0 +1,20 @@
+[package]
+name = "sam_extractor"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.75"
+counter = "0.5.7"
+glob = "0.3.1"
+itertools = "0.11.0"
+pyo3 = "0.19.0"
+rand = "0.8.5"
+rand_distr = "0.4.3"
+rayon = "1.7.0"
+serde = { version = "1.0.164", features = ["derive"] }
+serde_json = "1.0.96"
+serde_repr = "0.1.12"
+time = { version = "0.3.22", features = ["serde"] }
