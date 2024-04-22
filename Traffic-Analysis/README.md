@@ -9,7 +9,7 @@ This requires quite a few pieces to get working properly.
    - In Android Studio, the emulator itself and adb come with the default install; system images can be found in the SDK Manager
    - See the [`sdkmanager` docs](https://developer.android.com/tools/sdkmanager) for installing all the above with the CLI (adb is in platform-tools)
  - [Magisk APK](https://github.com/topjohnwu/Magisk/releases). Used to get an accessible `su` binary on the emulator, and to provide a framework for allowing some additional mucking around with the installed apps. Tested: v25.2
- - MagiskOnEmulator. A small set of tools used to get Magisk working on an emulator. Tested: Custom revision ([`./MagiskOnEmulator/`](MagiskOnEmulator))
+ - MagiskOnEmulator. A small set of tools used to get Magisk working on an emulator. Tested: Custom revision ([`./MagiskOnEmulator/`](MagiskOnEmulator/))
  - [Termux APK](https://github.com/termux/termux-app/releases). Used to get a package manager and more fully-featured shell environment on Android. Tested: `termux-app_v0.118.0+github-debug_x86.apk`
  - SSH. Used to access Termux from the host shell.
  - sshd, tsu, tcpdump, mitmproxy packages on Termux. Used to allow ssh, sudo, packet captures, and MITM'ing traffic in android. (These are installed as part of the instructions below.)
@@ -81,7 +81,7 @@ That said, if you wish to do live captures from Wireshark with working Signal fi
    - To view accurate timing and order information about packets instead, you'll need to disable the TCP and TLS reassemble options mentioned above, which will render much of the application data inaccessible.
  - To parse the protobufs in Signal messages:
    - Edit -> Preferences -> Protocols -> ProtoBuf
-   - Edit the search paths to include the [`protobufs`](protobufs) directory of this project, and ensure "Dissect Protobuf fields as Wireshark fields" and "Show details of message, fields and enums" are enabled.
+   - Edit the search paths to include the [`protobufs`](protobufs/) directory of this project, and ensure "Dissect Protobuf fields as Wireshark fields" and "Show details of message, fields and enums" are enabled.
    - Copy the `signal_protobuf.lua` file to your [Wireshark plugin folder](https://www.wireshark.org/docs/wsug_html_chunked/ChPluginFolders.html).
    - Restart Wireshark, open the pcap file again, and enable the filter.
    - Go to Analyze -> Enabled Protocols, and enable the `signal_protobuf`, `signal_body`, and `signal_content` protocols.
