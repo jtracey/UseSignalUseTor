@@ -16,8 +16,9 @@ The one place where code from both parts may help is collecting file sizes from 
 
 ## License
 
-As stated before, we do not recommend using the code as it exists in this repo for additional research.
-We will update it with links to the individual repos as they are made public.
-This repo currently includes the entirety of our modified copy of the WhatsApp Doc code ([`Shadow/whatsapp-public-groups/`](Shadow/whatsapp-public-groups/)), which does not currently have a license.
-The repo in its entirety, and that code in particular, should therefore not be distributed outside its capacity as a research artifact, at least until this is resolved with its original authors.
-Other directories may contain code with their own respective licenses, and can be redistributed accordingly.
+Most of this repository is licensed under the terms of the MIT License, found in the [LICENSE](LICENSE) file.
+The major exceptions are:
+ - The [protobufs](Traffic-Analysis/protobufs/), which are unmodified from Signal's copies, and are available under the terms of the AGPL.
+ - The [MagiskOnEmulator](Traffic-Analysis/MagiskOnEmulator) code, which is Apache licensed and modified from [the original](https://github.com/shakalaca/MagiskOnEmulator).
+ 
+There should be a copy of [whatsapp-public-groups](https://github.com/gvrkiran/whatsapp-public-groups), from the WhatsApp Doc paper, in the [`Shadow`](Shadow/) directory, but no license is available for that repo.
